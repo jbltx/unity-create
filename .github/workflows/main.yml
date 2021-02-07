@@ -30,10 +30,8 @@ jobs:
         unityVersion:
           - 2019.2.11f1
           - 2019.3.15f1
-        unityLicense:
-          - ${{ secrets.UNITY_LICENSE }}
     steps:
-    
+
       # Checkout repository (required to test local actions)
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -42,7 +40,7 @@ jobs:
       - name: Create Unity Project
         uses: ./
         env:
-          UNITY_LICENSE: ${{ matrix.unityLicense }}
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
           unityVersion: ${{ matrix.unityVersion }}
           projectPath: ${{ matrix.projectPath }}
