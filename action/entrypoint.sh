@@ -35,6 +35,8 @@ else
   echo ""
 fi
 
+source /steps/return_license.sh
+
 #
 # Exit with code from Unity process
 #
