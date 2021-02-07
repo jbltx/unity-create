@@ -24,7 +24,7 @@ if [[ -n "$UNITY_LICENSE" ]] || [[ -n "$UNITY_LICENSE_FILE" ]]; then
   fi
 
   # Activate license
-  ACTIVATION_OUTPUT=$(unity-editor \
+  ACTIVATION_OUTPUT=$(xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity \
       -nographics \
       -logFile /dev/stdout \
       -quit \
@@ -61,7 +61,7 @@ elif [[ -n "$UNITY_SERIAL" && -n "$UNITY_EMAIL" && -n "$UNITY_PASSWORD" ]]; then
   echo "Requesting activation (professional license)"
 
   # Activate license
-  unity-editor \
+  xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' /opt/Unity/Editor/Unity \
     -batchmode \
     -nographics \
     -logFile /dev/stdout \
