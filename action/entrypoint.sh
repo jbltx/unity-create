@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source /steps/activate.sh
+source ./steps/activate.sh
 
 #
 # Display the unity version
@@ -34,3 +34,8 @@ else
   echo "###########################"
   echo ""
 fi
+
+#
+# Exit with code from Unity process
+#
+exit $UNITY_EXIT_CODE
