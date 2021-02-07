@@ -9,7 +9,10 @@
   "scripts": {
     "build": "ncc build src --out action --minify",
     "lint": "prettier --check \"src/**/*.js\" && eslint src",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable"
   },
   "dependencies": {
     "@actions/core": "^1.2.2",
@@ -31,10 +34,11 @@
     "eslint-plugin-prettier": "3.1.2",
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-unicorn": "17.1.0",
-    "husky": "4.2.3",
+    "husky": "5.0.8",
     "jest": "25.1.0",
     "lint-staged": "10.0.8",
     "lodash-es": "4.17.15",
+    "pinst": "2.1.4",
     "prettier": "1.19.1"
   },
   "husky": {
