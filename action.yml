@@ -1,0 +1,19 @@
+name: 'Unity - Create'
+author: Mickael Bonfill <jbltx@protonmail.com>
+description: 'Create an empty Unity Project'
+inputs:
+  unityVersion:
+    required: false
+    default: '2019.2.11f1'
+    description: 'Version of unity to use for creating the project.'
+  projectPath:
+    required: false
+    default: ''
+    description: 'Relative path to the project to be built.'
+outputs: {}
+branding:
+  icon: 'box'
+  color: 'gray-dark'
+runs:
+  using: 'node12'
+  main: 'action/index.js'

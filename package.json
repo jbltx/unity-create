@@ -1,0 +1,57 @@
+{
+  "name": "unity-create",
+  "version": "0.0.0",
+  "description": "Create an empty Unity Project",
+  "main": "action/index.js",
+  "repository": "git@github.com:jbltx/unity-create.git",
+  "author": "jbltx <jbltx@protonmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "ncc build src --out action --minify",
+    "lint": "prettier --check \"src/**/*.js\" && eslint src",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/exec": "1.0.3",
+    "@actions/github": "^2.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.8.4",
+    "@babel/core": "7.8.7",
+    "@babel/preset-env": "7.8.7",
+    "@zeit/ncc": "0.21.1",
+    "babel-eslint": "10.1.0",
+    "eslint": "6.8.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-flowtype": "4.6.0",
+    "eslint-plugin-import": "2.20.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-react": "7.19.0",
+    "eslint-plugin-unicorn": "17.1.0",
+    "husky": "4.2.3",
+    "jest": "25.1.0",
+    "lint-staged": "10.0.8",
+    "lodash-es": "4.17.15",
+    "prettier": "1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn build && git add action/index.js"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint",
+      "git add",
+      "jest --findRelatedTests"
+    ],
+    "*.{json,md,yaml,yml}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
