@@ -22,6 +22,7 @@ UNITY_EXIT_CODE=$?
 # Display information about the result
 #
 if [ $UNITY_EXIT_CODE -eq 0 ]; then
+  chmod -R a+rw $PROJECT_PATH
   echo ""
   echo "###########################"
   echo "#     Project created     #"
