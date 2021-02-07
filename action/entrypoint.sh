@@ -7,8 +7,7 @@ source /steps/activate.sh
 #
 echo "Creating a project using Unity version \"$UNITY_VERSION\"."
 
-CREATE_OUTPUT=$(xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' \
-    /opt/Unity/Editor/Unity \
+CREATE_OUTPUT=$(unity-editor \
       -batchmode \
       -nographics \
       -logFile /dev/stdout \
