@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./steps/activate.sh
+source /steps/activate.sh
 
 #
 # Display the unity version
