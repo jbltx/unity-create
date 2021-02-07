@@ -31,7 +31,6 @@ jobs:
           - 2019.2.11f1
           - 2019.3.15f1
     steps:
-
       # Checkout repository (required to test local actions)
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -39,6 +38,31 @@ jobs:
       # Create Unity Project
       - name: Create Unity Project
         uses: ./
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          unityVersion: ${{ matrix.unityVersion }}
+          projectPath: ${{ matrix.projectPath }}
+
+  createProjectsFromLastRelease:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        projectPath:
+          - ./UnityProjectFromLastRelease
+        unityVersion:
+          - 2019.2.11f1
+          - 2019.3.15f1
+    steps:
+      # Checkout repository (required to test local actions)
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Create Unity Project
+      - name: Create Unity Project
+        uses: jbltx/unity-create@v1.1
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
         with:
