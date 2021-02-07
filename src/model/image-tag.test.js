@@ -1,6 +1,6 @@
 import ImageTag from './image-tag';
 
-describe('UnityImageVersion', () => {
+describe('ImageTag', () => {
   describe('constructor', () => {
     const some = {
       name: 'someName',
@@ -23,16 +23,25 @@ describe('UnityImageVersion', () => {
       expect(() => new ImageTag({ version })).not.toThrow();
     });
 
-    test.each(['some version', '', 1, null])('throws for incorrect versions %p', version => {
+    test.each(['some version', '', 1, undefined])('throws for incorrect versions %p', version => {
       expect(() => new ImageTag({ version })).toThrow();
     });
   });
 
   describe('toString', () => {
     it('returns the correct version', () => {
-      const image = ImageTag.createForBase('2099.1.1111');
+      const image = ImageTag.createForBase({ version: '2099.1.1111' });
 
-      expect(image.toString()).toStrictEqual(`unityci/editor:2099.1.1111`);
+      expect(image.toString()).toStrictEqual(`unityci/editor:2099.1.1111-base-0`);
+    });
+
+    it('returns customImage if given', () => {
+      const image = ImageTag.createForBase({
+        version: '2099.1.1111',
+        customImage: 'unityci/editor:2099.1.1111-base-0',
+      });
+
+      expect(image.toString()).toStrictEqual(image.customImage);
     });
   });
 });
