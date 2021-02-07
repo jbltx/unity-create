@@ -45,6 +45,7 @@ jobs:
           projectPath: ${{ matrix.projectPath }}
 
   createProjectsFromLastRelease:
+    name: Create Project From Last Release (v1.1)
     runs-on: ubuntu-latest
 
     strategy:
@@ -56,10 +57,6 @@ jobs:
           - 2019.2.11f1
           - 2019.3.15f1
     steps:
-      # Checkout repository (required to test local actions)
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       # Create Unity Project
       - name: Create Unity Project
         uses: jbltx/unity-create@v1.1
