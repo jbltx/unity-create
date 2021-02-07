@@ -33,6 +33,7 @@ jobs:
         unityLicense:
           - ${{ secrets.UNITY_LICENSE }}
     steps:
+    
       # Checkout repository (required to test local actions)
       - name: Checkout repository
         uses: actions/checkout@v2
