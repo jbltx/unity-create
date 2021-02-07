@@ -10,7 +10,8 @@ echo "Creating a project using Unity version \"$UNITY_VERSION\"."
 CREATE_OUTPUT=$(unity-editor \
       -batchmode \
       -nographics \
-      -logFile /dev/stdout \
+      -stackTraceLogType Full \
+      -logFile - \
       -quit \
       -createProject $PROJECT_PATH)
 
