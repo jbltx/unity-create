@@ -50,12 +50,10 @@
     "*.{js,jsx}": [
       "prettier --write",
       "eslint",
-      "git add",
       "jest --findRelatedTests"
     ],
     "*.{json,md,yaml,yml}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }
